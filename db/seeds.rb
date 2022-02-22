@@ -24,7 +24,7 @@ tours = []
     city: "Munich",
     starting_point: ["Marienplatz", "Rathaus", "Englischer Garten", "Nymphenburg Palace", "Munich Residenz", "Olympia Park"].sample,
     ending_point: ["Viktualienmarkt", "BMW Museum", "Peterskirche", "Deutsches Museum", "Asamkirche"].sample,
-    description: Faker::Lorem.paragraphs(number: 5),
+    description: Faker::Lorem.paragraphs(number: 5).join(""),
     duration: [2, 3, 4, 6].sample,
     price: [35, 39, 45, 49, 55, 59].sample
   )
