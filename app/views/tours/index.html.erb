@@ -1,0 +1,22 @@
+<h1>All tours</h1>
+
+<div class="container">
+  <div class="row">
+    <% @tours.each do |tour| %>
+      <div class="col-md-4 mt-5">
+        <%= link_to "#" do %>
+          <div class="card-deck">
+            <div class="card">
+              <img class="card-img-top" src="https://images.unsplash.com/photo-1544267822-2d9ac57fc38b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3024&q=80" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title"><%= tour.name %></h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
