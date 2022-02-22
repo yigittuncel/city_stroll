@@ -1,6 +1,10 @@
 class ToursController < ApplicationController
   before_action :set_tours, only: [:show]
 
+  def index
+    @tours = Tour.all
+  end
+
   def show; end
 
   private

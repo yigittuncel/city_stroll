@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
+  get 'tours/index'
   devise_for :users
   root to: 'pages#home'
-  resources :tours, only: [:show]
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :tours, only: [:index, :show]
 end
