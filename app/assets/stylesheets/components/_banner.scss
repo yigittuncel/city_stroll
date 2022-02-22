@@ -1,0 +1,30 @@
+.banner {
+  background-size: cover;
+  background-position: center;
+  height: 600px;
+  padding: 150px 0;
+}
+
+.banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  opacity: .3;
+  font-size: 70px;
+  font-weight: bold;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.banner p {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.carousel-images-banner {
+  background-size: cover;
+  background-position: center;
+  height: 600px;
+  padding: 150px 0;
+}
