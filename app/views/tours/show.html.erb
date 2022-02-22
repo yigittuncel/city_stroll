@@ -1,0 +1,31 @@
+<div class="container">
+  <p class="pt-4 pb-2"><%= link_to "Back", "#" %></p>
+  <div class="pt-2 pb-4">
+    <h1><%= @tour.name %></h1>
+    <p><%= @tour.city %></p>
+  </div>
+
+  <div style="background-color: white; height: 70vh">
+    <p>Some photos here. Maybe as a carousel</p>
+  </div>
+
+  <div class="row py-4 mb-10">
+
+    <div class="col-8">
+      <h2>Information</h2>
+      <p>Your guide would be: AVATAR <%= "#{@tour.user.first_name} #{@tour.user.last_name}" %></p>
+      <p><%= @tour.description %></p>
+      <ul class="list-group">
+        <li class="list-group-item">Starts in: <%= @tour.starting_point %></li>
+        <li class="list-group-item">Ends in: <%= @tour.ending_point %></li>
+        <li class="list-group-item">Duration: <%= @tour.duration %> minutes</li>
+      </ul>
+    </div>
+
+    <div class="col-4">
+      <h2>Book it now</h2>
+      <p>From <%= @tour.price.round %>€ per person!</p>
+      <%= link_to "Book", "#", class: "btn btn-primary"%>
+    </div>
+  </div>
+</div>
