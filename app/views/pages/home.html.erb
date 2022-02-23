@@ -1,8 +1,10 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1500759285222-a95626b934cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);">
+<div class="banner-lw" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1500759285222-a95626b934cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);">
   <div class="container">
-    <h1><strong>CITY STROLL</strong></h1>
+    <h1><strong>City Stroll</strong></h1>
     <p>guides you through the greatest cities of the world</p>
-    <a class="btn btn-flat" <%= link_to "Discover", tours_path %></a>
+    <%= link_to tours_path do %>
+      <p class="btn btn-flat">Discover</p>
+    <% end %>
   </div>
 </div>
 
@@ -39,18 +41,5 @@
         <% end %>
       </div>
     <% end %>
-  </div>
-</div>
-
-<div class="footer">
-  <div class="footer-links">
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-  </div>
-  <div class="footer-copyright">
-    © 2022 City Stroll </i>
-    </div>
-  <div class="container">
   </div>
 </div>
