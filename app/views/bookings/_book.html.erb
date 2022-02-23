@@ -1,0 +1,4 @@
+<%= simple_form_for([tour, booking]) do |f| %>
+  <%= f.input :start_date, as: :date, html5: true %>
+  <%= f.button :submit, class: "btn btn-primary", value: "Book" %>
+<% end %>
