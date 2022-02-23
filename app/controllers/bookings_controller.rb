@@ -1,9 +1,4 @@
 class BookingsController < ApplicationController
-  # def new
-  #   @tour = Tour.find(params[:tour_id])
-  #   @user = current_user
-  #   @booking = Booking.new
-  # end
 
   def create
     @tour = Tour.find(params[:tour_id])
@@ -14,7 +9,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to :root
     else
-      render :new
+      render action: "show", controller: "tours", tour: @tour
     end
   end
 
