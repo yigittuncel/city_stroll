@@ -23,9 +23,9 @@
     </div>
 
     <div class="col-4">
-      <h2>Book it now</h2>
+      <h2>Make a reservation</h2>
       <p>From <%= @tour.price.round %>€ per person!</p>
-      <%= link_to "Book", "#", class: "btn btn-primary"%>
+      <%= render "bookings/book", tour: @tour, user: current_user, booking: Booking.new %>
     </div>
   </div>
 </div>
