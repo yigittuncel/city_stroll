@@ -5,8 +5,7 @@
     <p><%= @tour.city %></p>
   </div>
 
-  <div style="background-color: white; height: 70vh">
-    <p>Some photos here. Maybe as a carousel</p>
+  <div style="background-image: url(<%= cl_image_path @tour.photo.key %>) ; height: 70vh; background-size: cover; background-position: center">
   </div>
 
   <div class="row py-4 mb-10">
