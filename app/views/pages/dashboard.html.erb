@@ -1,46 +1,30 @@
 <div class="container">
-  <div class="row">
-    <div class="col-lg-4">
-    </div>
-    <div class="col-lg-4">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
       <div>
-        <div class="text-center mt-3">
+        <div class="text-center mt-4">
           <h3>Hello <%= current_user.first_name %></h3>
           <h5>Your Bookings</h5>
         </div>
         <% current_user.bookings.each do |booking| %>
-          <div class="card-deck mt-3">
-            <div class="card text-decoration-none">
-              <%= cl_image_tag booking.tour.photo.key, height: 300, width: 400, crop: :fill, class: "card-img-top" %>
-              <div class="card-body">
-                <div class="d-flex justify-content-between">
-                  <p>booking id: <%= booking.id %></p>
-                  <p><%= booking.tour.users.count %> people are joining this tour</p>
-                </div>
-                <h6>on <%= booking.start_date %></h6>
 
-                <h5 class="card-title"><%= booking.tour.name %></h5>
-                <p class="card-text">in <%= booking.tour.city %></p>
-                  <p class="card-text"><small class="text-muted"><%= booking.tour.description %></small></p>
+          <%= link_to tour_path(booking.tour), class: "text-decoration-none text-dark" do %>
+            <div class="card-product mt-4">
+              <%= cl_image_tag booking.tour.photo.key, height: 300, width: 400, crop: :fill, class: "card-img-top" %>
+              <div class="card-product-infos">
+                <h2><%= booking.tour.name %> (<%= booking.tour.city %>)</h2>
+                <p><strong>on <%= booking.start_date %></strong> </p>
                 <div class="d-flex">
                   <p class="card-text me-2"><small class="text-muted">from: <%= booking.tour.starting_point %></small></p>
                   <p class="card-text"><small class="text-muted">to: <%= booking.tour.ending_point %></small></p>
                 </div>
-                  <p class="font-weight-bold text-right">duration: <%= booking.tour.duration %>
-                    <% if booking.tour.duration > 1 %>
-                      hours
-                    <% else %>
-                      hour
-                    <% end %>
-                  </p>
-                  <p class="font-weight-bold text-right">€ <%= booking.tour.price %></p>
+                <p>Your guide is <%= booking.tour.user.first_name %></p>
+                <p>Duration: <%= booking.tour.duration %> mins </p>
+                <p><%= booking.tour.users.count %> people are joining this tour</p>
               </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
-      </div>
-    </div>
-    <div class="col-lg-4">
     </div>
   </div>
 </div>
