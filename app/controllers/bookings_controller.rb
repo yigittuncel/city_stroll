@@ -7,7 +7,7 @@ class BookingsController < ApplicationController
     @booking.tour = @tour
     @booking.user = @user
     if @booking.save
-      redirect_to :root
+      redirect_to dashboard_path
     else
       render action: "show", controller: "tours", tour: @tour
     end
