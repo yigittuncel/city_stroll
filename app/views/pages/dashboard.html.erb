@@ -8,26 +8,32 @@
           <h3>Hello <%= current_user.first_name %></h3>
           <h5>Your Bookings</h5>
         </div>
-        <% current_user.booked_tours.each do |tour| %>
+        <% current_user.bookings.each do |booking| %>
           <div class="card-deck mt-3">
             <div class="card text-decoration-none">
               <img class="card-img-top" src="https://images.unsplash.com/photo-1544267822-2d9ac57fc38b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3024&q=80" alt="Card image cap">
               <div class="card-body">
-                <h5 class="card-title"><%= tour.name %></h5>
-                <p class="card-text">in <%= tour.city %></p>
-                  <p class="card-text"><small class="text-muted"><%= tour.description %></small></p>
-                <div class="d-flex">
-                  <p class="card-text me-2"><small class="text-muted">from: <%= tour.starting_point %></small></p>
-                  <p class="card-text"><small class="text-muted">to: <%= tour.ending_point %></small></p>
+                <div class="d-flex justify-content-between">
+                  <p>booking id: <%= booking.id %></p>
+                  <p><%= booking.tour.users.count %> people are joining this tour</p>
                 </div>
-                  <p class="font-weight-bold text-right">duration: <%= tour.duration %>
-                    <% if tour.duration > 1 %>
+                <h3><%= booking.start_date %></h3>
+
+                <h5 class="card-title"><%= booking.tour.name %></h5>
+                <p class="card-text">in <%= booking.tour.city %></p>
+                  <p class="card-text"><small class="text-muted"><%= booking.tour.description %></small></p>
+                <div class="d-flex">
+                  <p class="card-text me-2"><small class="text-muted">from: <%= booking.tour.starting_point %></small></p>
+                  <p class="card-text"><small class="text-muted">to: <%= booking.tour.ending_point %></small></p>
+                </div>
+                  <p class="font-weight-bold text-right">duration: <%= booking.tour.duration %>
+                    <% if booking.tour.duration > 1 %>
                       hours
                     <% else %>
                       hour
                     <% end %>
                   </p>
-                  <p class="font-weight-bold text-right">€ <%= tour.price %></p>
+                  <p class="font-weight-bold text-right">€ <%= booking.tour.price %></p>
               </div>
             </div>
           </div>
