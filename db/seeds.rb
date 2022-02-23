@@ -1,9 +1,14 @@
 require "faker"
+require "open-uri"
 
 Tour.destroy_all
 puts "Previous tours deleted..."
 User.destroy_all
 puts "Previous users deleted..."
+
+
+
+
 
 users = []
 10.times do
@@ -17,22 +22,30 @@ users = []
   users << user
 end
 
-tours = []
-10.times do
-  tour = Tour.new(
-    name: ["old town", "Viktualienmarkt", "Hop-On Hop-Off", "City Tour", "Spooky Tour of Old Town", "Romantic Road"].sample,
-    city: "Munich",
-    starting_point: ["Marienplatz", "Rathaus", "Englischer Garten", "Nymphenburg Palace", "Munich Residenz", "Olympia Park"].sample,
-    ending_point: ["Viktualienmarkt", "BMW Museum", "Peterskirche", "Deutsches Museum", "Asamkirche"].sample,
-    description: Faker::Lorem.paragraphs(number: 5).join(""),
-    duration: [2, 3, 4, 6].sample,
-    price: [35, 39, 45, 49, 55, 59].sample
-  )
-  puts "> #{tour.name} is created"
-  tours << tour
+tour_photos = ["", "", "", "", ""]
+
+tour_photos.each do |photo|
+  tour_photo = URI.open('https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg')
 end
 
-tours.each do |tour|
+tour_names = ["Old town", "Viktualienmarkt", "Hop-On Hop-Off", "City Tour", "Spooky Tour of Old Town", "Romantic Road"]
+starting_points = ["Marienplatz", "Rathaus", "Englischer Garten", "Nymphenburg Palace", "Munich Residenz", "Olympia Park"]
+ending_points = ["Viktualienmarkt", "BMW Museum", "Peterskirche", "Deutsches Museum", "Asamkirche"]
+
+tours = Array.new(10)
+
+tours.each do
+  tour = Tour.new(
+    name: tour_names.sample,
+    city: "Munich",
+    starting_point: starting_points.sample,
+    ending_point: ending_points.sample,
+    description: Faker::Lorem.paragraphs(number: 5).join,
+    duration: [90, 30, 120, 60].sample,
+    price: [35, 39, 45, 49, 55, 59].sample
+  )
+  tour.photo.attach(io: tour_photo, filename: 'nes.png', content_type: 'image/png')
   tour.user = users.sample
   tour.save!
+  puts "Tour #{tour.name} created!"
 end
