@@ -6,10 +6,6 @@ puts "Previous tours deleted..."
 User.destroy_all
 puts "Previous users deleted..."
 
-
-
-
-
 users = []
 10.times do
   user = User.create!(
@@ -22,21 +18,24 @@ users = []
   users << user
 end
 
-tour_photos = ["", "", "", "", ""]
-
-tour_photos.each do |photo|
-  tour_photo = URI.open('https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg')
-end
+tour_photos = [
+  "https://upload.wikimedia.org/wikipedia/commons/7/73/Rathaus_and_Marienplatz_from_Peterskirche_-_August_2006.jpg",
+  "https://www.nationsonline.org/gallery/Germany/Theatiner-Church-Munich.jpg",
+  "https://upload.wikimedia.org/wikipedia/commons/d/da/Frauenkirche_Munich_-_View_from_Peterskirche_Tower2.jpg",
+  "https://3iqhm91wtiv21y4zza4dqwj2-wpengine.netdna-ssl.com/wp-content/uploads/Germany-Munich-Upscale-Shopping-District.jpg",
+  "https://upload.wikimedia.org/wikipedia/commons/0/06/Basilika_Sankt_Paul_Munich_by_night.jpg",
+  "https://www.gpsmycity.com/img/gd_sight/16189.jpg"
+]
 
 tour_names = ["Old town", "Viktualienmarkt", "Hop-On Hop-Off", "City Tour", "Spooky Tour of Old Town", "Romantic Road"]
 starting_points = ["Marienplatz", "Rathaus", "Englischer Garten", "Nymphenburg Palace", "Munich Residenz", "Olympia Park"]
 ending_points = ["Viktualienmarkt", "BMW Museum", "Peterskirche", "Deutsches Museum", "Asamkirche"]
 
-tours = Array.new(10)
+tours = Array.new(6)
 
-tours.each do
+tours.each_with_index do |t, index|
   tour = Tour.new(
-    name: tour_names.sample,
+    name: tour_names[index],
     city: "Munich",
     starting_point: starting_points.sample,
     ending_point: ending_points.sample,
@@ -44,7 +43,8 @@ tours.each do
     duration: [90, 30, 120, 60].sample,
     price: [35, 39, 45, 49, 55, 59].sample
   )
-  tour.photo.attach(io: tour_photo, filename: 'nes.png', content_type: 'image/png')
+  tour_photo = URI.open(tour_photos[index])
+  tour.photo.attach(io: tour_photo, filename: tour.name, content_type: 'image/png')
   tour.user = users.sample
   tour.save!
   puts "Tour #{tour.name} created!"
