@@ -1,6 +1,8 @@
 require "faker"
 require "open-uri"
 
+Booking.destroy_all
+puts "Previous bookings deleted..."
 Tour.destroy_all
 puts "Previous tours deleted..."
 User.destroy_all
