@@ -1,0 +1,39 @@
+<%= link_to tour_path(tour), class: "text-decoration-none text-dark" do %>
+
+  <div class="card-deck">
+
+    <div class="card text-decoration-none">
+
+      <%= cl_image_tag tour.photo.key, height: 300, width: 400, crop: :fill, class: "card-img-top" %>
+
+      <div class="card-body">
+
+        <h5 class="card-title"><%= tour.name %></h5>
+
+        <p class="card-text">in <%= tour.city %></p>
+        <p class="card-text"><small class="text-muted"><%= tour.description %></small></p>
+
+        <div class="d-flex">
+          <p class="card-text me-2"><small class="text-muted">from: <%= tour.starting_point %></small></p>
+          <p class="card-text"><small class="text-muted">to: <%= tour.ending_point %></small></p>
+        </div>
+
+        <p class="font-weight-bold text-right">
+
+          <% if tour.duration > 60 %>
+            <%= tour.minutes_to_hours[:hours] %> hours <%= tour.minutes_to_hours[:minutes] %> minutes
+          <% else %>
+            <%= tour.duration %> minutes
+          <% end %>
+
+        </p>
+
+        <p class="font-weight-bold text-right">€ <%= tour.price %></p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+<% end %>
