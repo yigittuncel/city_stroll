@@ -7,9 +7,9 @@
           <%= f.input :name, placeholder: 'e.g. Munich Walking Tour' %>
           <%= f.input :city %>
           <%= f.input :starting_point %>
-          <%= f.input :duration, placeholder: '2 hours' %>
+          <%= f.input :duration, as: :string, placeholder: 'e.g. 2 hours' %>
           <%= f.input :description %>
-          <%= f.input :price %>
+          <%= f.input :price, as: :string, placeholder: 'e.g. 45€' %>
           <%= f.input :photo, as: :file %>
           <%= f.submit class: 'btn btn-flat' %>
         <% end %>
