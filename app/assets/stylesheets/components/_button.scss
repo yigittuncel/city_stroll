@@ -1,13 +1,15 @@
 .btn-flat {
 width: 200px;
-background-color: #E57E9B;
-border:#E57E9B;
+background-color: #F8DAD2;
+border: 1px solid #F0CEC5;
 text-decoration: none;
-border-radius: 5px;
+border-radius: 65px;
 color: white;
 font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
+
 .btn-flat:hover {
-  background-color: #C40040;
+  background-color: #F0CEC5;
+  color: white !important;
 }
