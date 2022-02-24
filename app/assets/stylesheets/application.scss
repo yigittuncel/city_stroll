@@ -11,3 +11,20 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+a{
+  color: black;
+  text-decoration: none;
+
+  &:hover{
+    color: black;
+  }
+}
+
+h1{
+  font-weight: 900;
+}
+
+h2, h3, h4, h5, h6{
+  font-weight: bold;
+}
