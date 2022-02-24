@@ -13,3 +13,11 @@ font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
   background-color: #F0CEC5;
   color: white !important;
 }
+
+.btn-success, .btn-primary, .btn-info{
+  color: white;
+  font-weight: bold;
+  &:hover{
+    color: white;
+  }
+}

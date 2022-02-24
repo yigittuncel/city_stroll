@@ -5,7 +5,9 @@ class ToursController < ApplicationController
     @tours = Tour.all
   end
 
-  def show; end
+  def show
+    @showpage = true
+  end
 
   def new
     @tour = Tour.new

@@ -1,0 +1,15 @@
+body.showpage{
+  background-color: white;
+  .navbar{
+    border-bottom: solid #dbdbdb 1px;
+  }
+}
+
+.border-round{
+  border-radius: 8px;
+  border: none;
+}
+
+.bg-coral{
+  background-color: $coral;
+}
