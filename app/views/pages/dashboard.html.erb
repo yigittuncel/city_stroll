@@ -1,30 +1,50 @@
 <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-lg-8">
-      <div>
-        <div class="text-center mt-4">
-          <h3>Hello <%= current_user.first_name %></h3>
-          <h5>Your Bookings</h5>
-        </div>
-        <% current_user.bookings.each do |booking| %>
-
-          <%= link_to tour_path(booking.tour), class: "text-decoration-none text-dark" do %>
-            <div class="card-product mt-4">
-              <%= cl_image_tag booking.tour.photo.key, height: 300, width: 400, crop: :fill, class: "card-img-top" %>
-              <div class="card-product-infos">
-                <h2><%= booking.tour.name %> (<%= booking.tour.city %>)</h2>
-                <p><strong>on <%= booking.start_date %></strong> </p>
-                <div class="d-flex">
-                  <p class="card-text me-2"><small class="text-muted">from: <%= booking.tour.starting_point %></small></p>
-                  <p class="card-text"><small class="text-muted">to: <%= booking.tour.ending_point %></small></p>
-                </div>
-                <p>Your guide is <%= booking.tour.user.first_name %></p>
-                <p>Duration: <%= booking.tour.duration %> mins </p>
-                <p><%= booking.tour.users.count %> people are joining this tour</p>
-              </div>
+  <ul class="nav nav-tabs mt-5" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Your upcoming tours</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Reservations for your tours</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Tours you offer </button>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+      <div class="row">
+        <div class="col-lg-6">
+        <% if current_user.bookings.empty? %>
+            <div class="m-3" style="height: 75vh">
+              <p >You don't have any bookings yet.</p>
+              <%= link_to "Discover our tours", tours_path, class: "btn btn-primary" %>
             </div>
+        <% else %>
+
+          <% current_user.bookings.each do |booking| %>
+            <%= render partial: "shared/bookings", locals: { booking: booking } %>
           <% end %>
         <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+      <div class="row">
+        <div class="col-lg-6">
+          <% if current_user.booked_bookings.empty? %>
+            <div style="height: 75vh">
+              <p class="m-3">You don't have any bookings for your tours yet</p>
+            </div>
+          <% else %>
+            <% current_user.booked_bookings.each do |booking| %>
+                <%= render partial: "shared/bookings", locals: { booking: booking } %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+      ...
     </div>
   </div>
 </div>
