@@ -5,4 +5,6 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create]
   end
   get "/dashboard", to: "pages#dashboard"
+  get "tours/new", to: "tours#new"
+  post "tours", to: "tours#create"
 end
