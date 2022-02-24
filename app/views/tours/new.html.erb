@@ -1,0 +1,19 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+        <h3>Create a new tour</h3>
+        <%= simple_form_for @tour do |f| %>
+          <%= f.input :name, placeholder: 'e.g. Munich Walking Tour' %>
+          <%= f.input :city %>
+          <%= f.input :starting_point %>
+          <%= f.input :duration, as: :string, placeholder: 'e.g. 2 hours' %>
+          <%= f.input :description %>
+          <%= f.input :price, as: :string, placeholder: 'e.g. 45€' %>
+          <%= f.input :photo, as: :file %>
+          <%= f.submit class: 'btn btn-flat' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

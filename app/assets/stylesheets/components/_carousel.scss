@@ -1,0 +1,28 @@
+.carousel{
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border: none;
+}
+
+.carousel-item{
+  height: 40vh;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+
+}
+
+.carousel-text{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  .btn{
+    color: white;
+    font-weight: bold;
+    margin-top: 5px;
+  }
+}

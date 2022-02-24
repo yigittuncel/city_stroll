@@ -12,4 +12,13 @@ class Tour < ApplicationRecord
   validates :description, presence: true, length: { in: 100..750 }
   validates :duration, presence: true
   validates :price, presence: true
+
+  def minutes_to_hours
+    hours = duration / 60
+    minutes = duration % 60
+    {
+      hours: hours,
+      minutes: minutes
+    }
+  end
 end
