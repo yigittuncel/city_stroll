@@ -13,10 +13,18 @@
 @import "pages/index";
 
 a{
+<<<<<<< Updated upstream
   color: black;
   text-decoration: none;
 
   &:hover{
     color: black;
+=======
+  text-decoration: none;
+  color: black;
+
+  &:hover{
+    color:black;
+>>>>>>> Stashed changes
   }
 }
