@@ -21,7 +21,7 @@ users = []
 end
 
 tour_photos = [
-  "https://cdn.pixabay.com/photo/2018/04/25/09/26/eiffel-tower-3349075_1280.jpg",
+  "https://images.unsplash.com/photo-1471960098958-2059c6681742?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1901&q=80",
   "https://images.unsplash.com/photo-1587789202069-f57c846b85db?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80",
   "https://images.unsplash.com/photo-1503152394-c571994fd383?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
   "https://images.unsplash.com/photo-1586172992865-4dfff50bd23a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
@@ -69,7 +69,7 @@ tours.each_with_index do |t, index|
     ending_point: ending_points[index],
     description: tour_description[index],
     duration: [90, 30, 120, 60].sample,
-    price: [35, 39, 45, 49, 55, 59].sample
+    price: [25, 35, 39, 45, 49, 55, 59].sample
   )
   tour_photo = URI.open(tour_photos[index])
   tour.photo.attach(io: tour_photo, filename: tour.name, content_type: 'image/png')
