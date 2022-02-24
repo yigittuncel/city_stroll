@@ -1,39 +1,53 @@
-<%= link_to tour_path(tour), class: "text-decoration-none text-dark" do %>
+<%= link_to tour_path(tour) do %>
+<div class="card text-decoration-none p-relative">
 
-  <div class="card-deck">
+  <p class="card-text badge bg-success position-absolute" style="top: 5px; right: 5px;"> <%= tour.city %></p>
 
-    <div class="card text-decoration-none">
+  <div class="card-img" style="background-image: url(<%= cl_image_path tour.photo.key %>)">
 
-      <%= cl_image_tag tour.photo.key, height: 300, width: 400, crop: :fill, class: "card-img-top" %>
+  </div>
 
-      <div class="card-body">
+  <div class="card-body">
 
-        <h5 class="card-title"><%= tour.name %></h5>
+    <h5 class="card-title"><%= tour.name %></h5>
 
-        <p class="card-text">in <%= tour.city %></p>
-        <p class="card-text"><small class="text-muted"><%= tour.description %></small></p>
+    <div class="card-meta">
 
-        <div class="d-flex">
-          <p class="card-text me-2"><small class="text-muted">from: <%= tour.starting_point %></small></p>
-          <p class="card-text"><small class="text-muted">to: <%= tour.ending_point %></small></p>
-        </div>
+      <p class="font-weight-bold text-right m-0">
 
-        <p class="font-weight-bold text-right">
+        <i class="fas fa-history"></i>
 
-          <% if tour.duration > 60 %>
-            <%= tour.minutes_to_hours[:hours] %> hours <%= tour.minutes_to_hours[:minutes] %> minutes
+        <% if tour.duration >= 60 %>
+          <% if tour.duration % 60 == 0 %>
+            <%= tour.minutes_to_hours[:hours] %>
+            <%= tour.minutes_to_hours[:hours] > 1 ? "hours" : "hour" %>
           <% else %>
-            <%= tour.duration %> minutes
+            <%= tour.minutes_to_hours[:hours] %>
+            <%= tour.minutes_to_hours[:hours] > 1 ? "hours" : "hour" %>
+            <%= tour.minutes_to_hours[:minutes] %> minutes
           <% end %>
+        <% else %>
+          <%= tour.duration %> minutes
+        <% end %>
 
-        </p>
+      </p>
 
-        <p class="font-weight-bold text-right">€ <%= tour.price %></p>
+      <p><i class="fas fa-map-marker-alt"></i> <%= tour.starting_point %></p>
+
+      <div class="card-price">
+
+        <p class="text-center m-0"><h5 style="display:inline; font-weight: bold">From <%= tour.price.round %> €</h5>
+        <span>per person</span></p>
 
       </div>
 
+
     </div>
 
+    <%# link_to "Book this tour", tour_path(tour), class:"btn btn-primary stretched-link" %>
+
   </div>
+
+</div>
 
 <% end %>
