@@ -32,8 +32,8 @@ tour_photos = [
 tour_names = ["Eiffel Tower", "Sagrada Familia", "Acropolis", "Walking Tour", "Louvre Museum", "Park Güell"]
 starting_points = ["Champs de Mars", "Sagrada Familia", "Apostolou Pavlou 11, Athens 118 51", "Anne Frank house", "Arc du Carrousel", "Carretera del Carmel"]
 ending_points = ["Summit of Eiffel Tower", "Sagrada Familia", "Acropolis museum", "Anne Frank house", "Louvre museum", "Park Güell"]
-city = ["Paris", "Barcelona", "Athens", "Amsterdam", "Paris", "Barcelona"]
-description = ["Make the best use of your precious time in Paris with this direct access ticket to the Eiffel Tower. Choose from a 2nd level + summit or 2nd level-only ticket and follow a certified guide to learn the fascinating history of this world-famous landmark.",
+city_names = ["Paris", "Barcelona", "Athens", "Amsterdam", "Paris", "Barcelona"]
+tour_description = ["Make the best use of your precious time in Paris with this direct access ticket to the Eiffel Tower. Choose from a 2nd level + summit or 2nd level-only ticket and follow a certified guide to learn the fascinating history of this world-famous landmark.",
                "Make your visit to the Sagrada Familia unforgettable with a 1.5-hour guided tour of Gaudí’s masterpiece. See the Basilica’s dream-like façade and interior in a small-group or private tour setting accompanied by an expert guide.",
                "Enjoy skip-the-ticket line access and discover the cradle of Western civilization on a guided visit to the Acropolis. Choose from either a small-group or private guided experience and indulge in tasty Greek treats when you upgrade to include a street food tour in Athen's old town.",
                "Visit famous sites of Amsterdam downtown and get an overview of the city on this 2.5-hour walking tour dedicated to culture and history. Profit from tips every adventurous traveler needs to know and make the best of your trip. Listen to your guide telling you which architectural designs were popular in the past and get an idea of the people of Amsterdam.",
@@ -45,10 +45,10 @@ tours = Array.new(6)
 tours.each_with_index do |t, index|
   tour = Tour.new(
     name: tour_names[index],
-    city: "Munich",
-    starting_point: starting_points.sample,
-    ending_point: ending_points.sample,
-    description: Faker::Lorem.paragraphs(number: 5).join,
+    city: city_names[index],
+    starting_point: starting_point[index],
+    ending_point: ending_point[index],
+    description: tour_description[index],
     duration: [90, 30, 120, 60].sample,
     price: [35, 39, 45, 49, 55, 59].sample
   )
