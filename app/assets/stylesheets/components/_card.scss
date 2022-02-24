@@ -50,8 +50,11 @@
   background-size: cover;
   background-position: center;
   height: 150px;
+  border-radius: 8px 8px 0px 0px;
 }
 
-// .card{
-//   height: 500px;
-// }
+.card{
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border: none;
+}
