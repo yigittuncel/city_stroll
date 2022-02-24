@@ -28,12 +28,15 @@ tour_photos = [
   "https://cdn.pixabay.com/photo/2013/04/11/19/46/building-102840_1280.jpg",
   "https://images.unsplash.com/photo-1630219694734-fe47ab76b15e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=752&q=80",
   "https://cdn.pixabay.com/photo/2020/02/16/20/29/nyc-4854718_1280.jpg",
+  "https://images.unsplash.com/photo-1561629611-00a11e09eafd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80",
+  "https://images.unsplash.com/photo-1549944850-84e00be4203b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=768&q=80",
+
 ]
 
-tour_names = ["Eiffel Tower", "Sagrada Familia", "Acropolis", "Walking Tour", "Louvre Museum", "Park Güell", "Empire State Building"]
-starting_points = ["Champs de Mars", "Sagrada Familia", "Apostolou Pavlou 11, Athens 118 51", "Anne Frank house", "Arc du Carrousel", "Carretera del Carmel", "Empire State Building"]
-ending_points = ["Summit of Eiffel Tower", "Sagrada Familia", "Acropolis museum", "Anne Frank house", "Louvre museum", "Park Güell", "Empire State Building"]
-city_names = ["Paris", "Barcelona", "Athens", "Amsterdam", "Paris", "Barcelona", "New York"]
+tour_names = ["Eiffel Tower", "Sagrada Familia", "Acropolis", "Walking Tour", "Louvre Museum", "Park Güell", "Empire State Building", "Harry Potter Tour", "Desert Tour"]
+starting_points = ["Champs de Mars", "Sagrada Familia", "Apostolou Pavlou 11, Athens 118 51", "Anne Frank house", "Arc du Carrousel", "Carretera del Carmel", "Empire State Building", "Southwark View Point", "Dubai Marina"]
+ending_points = ["Summit of Eiffel Tower", "Sagrada Familia", "Acropolis museum", "Anne Frank house", "Louvre museum", "Park Güell", "Empire State Building", "Trafalgar Square", "Dubai Marina",  ]
+city_names = ["Paris", "Barcelona", "Athens", "Amsterdam", "Paris", "Barcelona", "New York", "London", "Dubai"]
 tour_description = ["Make the best use of your precious time in Paris with this direct access ticket to the Eiffel Tower. Choose from a 2nd level + summit or 2nd level-only ticket and follow a certified guide to learn the fascinating history of this world-famous landmark.",
                "Make your visit to the Sagrada Familia unforgettable with a 1.5-hour guided tour of Gaudí’s masterpiece. See the Basilica’s dream-like façade and interior in a small-group or private tour setting accompanied by an expert guide.",
                "Enjoy skip-the-ticket line access and discover the cradle of Western civilization on a guided visit to the Acropolis. Choose from either a small-group or private guided experience and indulge in tasty Greek treats when you upgrade to include a street food tour in Athen's old town.",
@@ -41,6 +44,8 @@ tour_description = ["Make the best use of your precious time in Paris with this 
                "Get priority entry access to the Louvre Museum and be led by an expert guide on a carefully planned route designed to maximize your time and give you a greater insight into the museum’s top highlights.",
                "Meet your guide in front of the Park Güell, skip the ticket line and discover this magnificent park designed by Antoni Gaudí more than 100 years ago. See the magnificent bridges, viaduct, and monumental zone.",
                "The New Empire State Building Experience not only gives you access to the legendary New York City landmark, allowing you to soar 1,054 foot (320 meters) high and enjoy magnificent 360-degree open-air views of New York City and beyond.",
+               "Walk in the footsteps of your favorite wizards (and witches) around Muggle London. Your Harry Potter enthusiast guide will be armed with weird and wonderful trivia all along the way.",
+               "After pickup from your hotel in a 4x4 Land Cruiser, you’ll head off with your local guide to the desert, just 45 minutes from Dubai. Upon reaching the Lahbab Desert, you’ll have about 20 minutes to relax. For the more adventurous, you can try quad biking, which is an optional activity.",
               ]
 
 tours = Array.new(16)
