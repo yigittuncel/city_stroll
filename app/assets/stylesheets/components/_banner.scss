@@ -1,18 +1,16 @@
 .banner-lw {
   background-size: cover;
   background-position: center;
-  height: 600px;
-  padding: 150px 0;
+  padding: 200px 0;
 }
 
-.banner-lw h1 {
-  margin: 0;
-  color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  opacity: .7;
-  font-size: 36px;
-  font-weight: bold;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+.banner-lw {
+  h1, h2{
+    margin: 0;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    font-family: "Montserrat";
+  }
 }
 
 .banner-lw p {
