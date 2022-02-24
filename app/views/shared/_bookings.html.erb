@@ -1,0 +1,18 @@
+<%= link_to tour_path(booking.tour), class: "text-decoration-none text-dark" do %>
+  <div class="card-product mt-4">
+    <%= cl_image_tag booking.tour.photo.key, class: "card-img-top" %>
+    <div class="card-product-infos">
+      <h2><%= booking.tour.name %> (<%= booking.tour.city %>)</h2>
+      <p><strong><%= booking.start_date.strftime("%A, %d %b %y") %></strong></p>
+      <p><i class="fas fa-map-marker-alt"></i> <%= booking.tour.starting_point %></p>
+      <div class="d-flex justify-content-between">
+        <div>
+          <p class="d-block"><i class="far fa-clock"></i> <%= booking.tour.duration %> mins </p>
+        </div>
+        <div>
+          <p><i class="fas fa-user-friends"></i><%= booking.tour.users.count %> people are joining this tour</p>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
