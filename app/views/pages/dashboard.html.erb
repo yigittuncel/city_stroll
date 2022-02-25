@@ -1,5 +1,6 @@
 <div class="container">
-  <ul class="nav nav-pills mt-5" id="myTab" role="tablist">
+  <h3 class="dashboard-title mt-4">Your dashboard</h3>
+  <ul class="nav nav-pills mt-4" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
       <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Your upcoming tours</button>
     </li>
@@ -51,7 +52,7 @@
         </div>
       <% else %>
         <div class="row">
-        <div class="ms-3 my-4">
+        <div class="ms-3 my-3">
           <p >Do you want to add new tour?</p>
           <%= link_to "Create new tour", new_tour_path, class: "btn btn-outline-info pill" %>
         </div>
