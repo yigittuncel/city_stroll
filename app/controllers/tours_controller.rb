@@ -17,8 +17,9 @@ class ToursController < ApplicationController
     @tour = Tour.new(tour_params)
     @tour.user = current_user
     if @tour.save
-      redirect_to dashboard_path
+      redirect_to dashboard_path, notice: "You have successfully created your tour."
     else
+      raise
       render :new
     end
   end
