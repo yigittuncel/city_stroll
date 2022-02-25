@@ -17,7 +17,7 @@
   <div class="mb-5" style="background-image: url(<%= cl_image_path @tour.photo.key %>) ; height: 70vh; background-size: cover; background-position: center">
   </div>
 
-  <div class="row">
+  <div class="row align-items-start">
 
     <div class="col-8">
 
@@ -62,11 +62,10 @@
 
     </div>
 
-    <div class="col-4 bg-coral border-round p-4 shadow-sm d-flex flex-column align-items-center flex-start text-center">
+    <div class="col-4 bg-coral border-round p-4 shadow-sm">
 
-      <h2 class="text-center">Make a reservation for this tour</h2>
-
-      <p class="align-self-center fw-bold btn btn-success btn-lg">From <%= @tour.price.round %>€ per person!</p>
+      <h5>Make a reservation</h5>
+      <p class="fw-bold"><%= @tour.price.round %>€ per person!</p>
       <%= render "bookings/book", tour: @tour, user: current_user, booking: Booking.new %>
     </div>
   </div>

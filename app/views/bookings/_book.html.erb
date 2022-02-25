@@ -1,4 +1,6 @@
 <%= simple_form_for([tour, booking]) do |f| %>
-  <%= f.input :start_date, as: :date, html5: true %>
-  <%= f.button :submit, class: "btn btn-info", value: "Book" %>
+  <div class="d-flex align-items-start mb-0">
+    <%= f.input :start_date, label: false, as: :date, html5: true %>
+    <%= f.button :submit, class: "btn btn-info flex-grow-1 py-1.5", value: "Book" %>
+  </div>
 <% end %>
