@@ -1,29 +1,73 @@
 <div class="container">
-  <p class="pt-4 pb-2"><%= link_to "Back", tours_path %></p>
-  <div class="pt-2 pb-4">
+
+
+  <p class="pt-4 pb-2">
+  <%= link_to "Most popular tours", tours_path %> >
+  <%= link_to @tour.city, tours_path %> >
+  <%= link_to @tour.name, tour_path(@tour) %>
+  </p>
+
+
+
+  <div class="pt-2 pb-4 d-flex justify-content-between align-items-center">
     <h1><%= @tour.name %></h1>
-    <p><%= @tour.city %></p>
+    <%= link_to @tour.city, tours_path, class:"btn btn-success" %>
   </div>
 
-  <div style="background-image: url(<%= cl_image_path @tour.photo.key %>) ; height: 70vh; background-size: cover; background-position: center">
+  <div class="mb-5" style="background-image: url(<%= cl_image_path @tour.photo.key %>) ; height: 70vh; background-size: cover; background-position: center">
   </div>
 
-  <div class="row py-4 mb-10">
+  <div class="row">
 
     <div class="col-8">
-      <h2>Information</h2>
-      <p>Your guide would be: AVATAR <%= "#{@tour.user.first_name} #{@tour.user.last_name}" %></p>
-      <p><%= @tour.description %></p>
-      <ul class="list-group">
-        <li class="list-group-item">Starts in: <%= @tour.starting_point %></li>
-        <li class="list-group-item">Ends in: <%= @tour.ending_point %></li>
-        <li class="list-group-item">Duration: <%= @tour.duration %> minutes</li>
-      </ul>
+
+      <div class="container pe-5">
+
+        <h2>Information</h2>
+
+        <p class="fw-bold">Tour made by: <%= "#{@tour.user.first_name} #{@tour.user.last_name}" %></p>
+
+        <p><%= @tour.description %></p>
+
+        <h5 class="mb-4">Tour details</h5>
+
+        <ul class="list-group">
+
+          <li class="list-group-item"><i class="fas fa-globe-africa"></i> City: <%= @tour.city %></li>
+
+          <li class="list-group-item"><i class="fas fa-map-marker-alt"></i> Starts in: <%= @tour.starting_point %></li>
+
+          <li class="list-group-item"><i class="fas fa-map-marker-alt"></i> Ends in: <%= @tour.ending_point %></li>
+
+          <li class="list-group-item">
+
+          <i class="fas fa-history"></i>
+          Duration:
+          <% if @tour.duration >= 60 %>
+            <% if @tour.duration % 60 == 0 %>
+              <%= @tour.minutes_to_hours[:hours] %>
+              <%= @tour.minutes_to_hours[:hours] > 1 ? "hours" : "hour" %>
+            <% else %>
+              <%= @tour.minutes_to_hours[:hours] %>
+              <%= @tour.minutes_to_hours[:hours] > 1 ? "hours" : "hour" %>
+              <%= @tour.minutes_to_hours[:minutes] %> minutes
+            <% end %>
+          <% else %>
+            <%= @tour.duration %> minutes
+          <% end %>
+
+          </li>
+        </ul>
+
+      </div>
+
     </div>
 
-    <div class="col-4">
+    <div class="col-4 bg-coral border-round p-4 shadow-sm d-flex flex-column align-items-center flex-start">
+
       <h2>Make a reservation</h2>
-      <p>From <%= @tour.price.round %>€ per person!</p>
+
+      <p class="align-self-center fw-bold">From <%= @tour.price.round %>€ per person!</p>
       <%= render "bookings/book", tour: @tour, user: current_user, booking: Booking.new %>
     </div>
   </div>
