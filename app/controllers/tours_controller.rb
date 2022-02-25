@@ -17,7 +17,7 @@ class ToursController < ApplicationController
     @tour = Tour.new(tour_params)
     @tour.user = current_user
     if @tour.save
-      redirect_to tour_path(@tour)
+      redirect_to dashboard_path
     else
       render :new
     end
@@ -30,6 +30,6 @@ class ToursController < ApplicationController
   end
 
   def tour_params
-    params.require(:tour).permit(:name, :city, :starting_point, :description, :duration, :price, :photos)
+    params.require(:tour).permit(:name, :city, :starting_point, :ending_point, :description, :duration, :price, :photo)
   end
 end
