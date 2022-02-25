@@ -7,7 +7,20 @@
       <p><i class="fas fa-map-marker-alt"></i> <%= booking.tour.starting_point %></p>
       <div class="d-flex justify-content-between">
         <div>
-          <p class="d-block"><i class="far fa-clock"></i> <%= booking.tour.duration %> mins </p>
+          <p class="d-block"><i class="far fa-clock"></i>
+            <% if booking.tour.duration >= 60 %>
+              <% if booking.tour.duration % 60 == 0 %>
+                <%= booking.tour.minutes_to_hours[:hours] %>
+                <%= booking.tour.minutes_to_hours[:hours] > 1 ? "hours" : "hour" %>
+              <% else %>
+                <%= booking.tour.minutes_to_hours[:hours] %>
+                <%= booking.tour.minutes_to_hours[:hours] > 1 ? "hours" : "hour" %>
+                <%= booking.tour.minutes_to_hours[:minutes] %> minutes
+              <% end %>
+            <% else %>
+              <%= booking.tour.duration %> minutes
+            <% end %>
+          </p>
         </div>
         <div>
           <p><i class="fas fa-user-friends"></i><%= booking.tour.users.count %> people are joining this tour</p>
