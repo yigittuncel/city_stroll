@@ -3,7 +3,7 @@
     <div class="col-12 col-md-6 offset-lg-3">
       <div class="bg-white rounded p-3 shadow">
         <h3>Create a new tour</h3>
-        <%= simple_form_for @tour do |f| %>
+        <%= simple_form_for(@tour, remote: true) do |f| %>
           <%= f.input :name, placeholder: 'e.g. Munich Walking Tour' %>
           <%= f.input :city %>
           <%= f.input :starting_point %>

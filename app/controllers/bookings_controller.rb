@@ -9,7 +9,8 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to dashboard_path
     else
-      render action: "show", controller: "tours", tour: @tour
+      @showpage = true
+      render 'tours/show'
     end
   end
 
