@@ -27,8 +27,8 @@ user_photos = [
   "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1641491612/phy5oue4p0ftrjl3nnu7.jpg"
 ]
 first_names = ["Christina", "Anna", "Romain", "Melissa", "Sophie", "Michelle", "Fotios", "Nicola", "Michael", "Mario", "Maximilian", "Hasib", "Sankar", "Yigit"]
-last_names = ["Borensky", "Eiden", "Gille", "Hauck", "Hadeln", "Knolly", "Kolytoumpas", "Pilcher", "Pitopoulakis", "Rodríguez González", "Scheider", "Selimovic", "Ganesh Subramanian", "Tuncel"]
-user_email = ["christina@borensky.com", "anna@eiden.com", "romain@gille.com", "melissa@hauck.com", "sophie@hadeln.com", "michelle@knolly.com", "fotios@kolytoumpas.com", "nicola@pilcher.com", "michael@pitopoulakis.com", "mario@rodríguez-gonzález.com", "maximilian@scheider.com", "hasib@Selimovic.com", "sankar@ganesh-subramanian.com", "yigit@tuncel.com"]
+last_names = ["Borensky", "Eiden", "Gille", "Hauck", "Hadeln", "Knolly", "Kolytoumpas", "Pilcher", "Pitopoulakis", "Rodriguez Gonzalez", "Scheider", "Selimovic", "Ganesh Subramanian", "Tuncel"]
+user_email = ["christina@borensky.com", "anna@eiden.com", "romain@gille.com", "melissa@hauck.com", "sophie@hadeln.com", "michelle@knolly.com", "fotios@kolytoumpas.com", "nicola@pilcher.com", "michael@pitopoulakis.com", "mario@rodriguez-gonzalez.com", "maximilian@scheider.com", "hasib@Selimovic.com", "sankar@ganesh-subramanian.com", "yigit@tuncel.com"]
 user_password = ["secret", "secret", "secret", "secret", "secret", "secret", "secret", "secret", "secret", "secret", "secret", "secret", "secret", "secret"]
 
 users.each_with_index do |u, index|
