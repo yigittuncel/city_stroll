@@ -1,7 +1,7 @@
 .card-lw {
   background-size: cover;
   background-position: center;
-  height: 120px;
+  height: 140px;
   border-radius: 1px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   display: flex;
@@ -23,7 +23,7 @@
   border-radius: 8px;
 }
 
-.card-product img {
+.card-product > img {
   height: 100%;
   width: 140px;
   object-fit: cover;
