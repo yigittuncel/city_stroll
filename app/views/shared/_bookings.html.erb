@@ -23,7 +23,9 @@
           </p>
         </div>
         <div>
-          <p><i class="fas fa-user-friends"></i><%= booking.tour.users.count %> people are joining this tour</p>
+          <% booking.tour.users.each do |user| %>
+            <%= user.first_name %>
+          <% end %>
         </div>
       </div>
     </div>
