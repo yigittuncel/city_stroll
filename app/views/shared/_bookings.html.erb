@@ -31,7 +31,7 @@
            </p>
         <div>
           <% booking.tour.users.each do |user| %>
-            <%= cl_image_tag user.photo.key, class: "avatar", alt: "avatar" %>
+            <%= cl_image_tag user.photo.key, class: "avatar-booking", alt: "avatar" %>
           <% end %>
         </div>
       </div>
