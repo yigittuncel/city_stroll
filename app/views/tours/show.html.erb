@@ -25,7 +25,7 @@
 
         <h2>Information</h2>
 
-        <p class="fw-bold">Tour made by: <%= "#{@tour.user.first_name} #{@tour.user.last_name}" %></p>
+        <p class="fw-bold"><span class="pe-2">Tourguide:</span><%= cl_image_tag @tour.user.photo.key, class:"avatar" %> <%= "#{@tour.user.first_name} #{@tour.user.last_name}" %></p>
 
         <p><%= @tour.description %></p>
 
@@ -33,16 +33,15 @@
 
         <ul class="list-group">
 
-          <li class="list-group-item"><i class="fas fa-globe-africa"></i> City: <%= @tour.city %></li>
+          <li class="list-group-item"><i class="fas fa-globe-africa pe-2"> </i> City: <%= @tour.city %></li>
 
-          <li class="list-group-item"><i class="fas fa-map-marker-alt"></i> Starts in: <%= @tour.starting_point %></li>
+          <li class="list-group-item"><i class="fas fa-map-marker-alt pe-2"> </i> Meeting point: <%= @tour.starting_point %></li>
 
-          <li class="list-group-item"><i class="fas fa-map-marker-alt"></i> Ends in: <%= @tour.ending_point %></li>
+          <li class="list-group-item"><i class="fas fa-map-marker-alt pe-2"> </i> Ending point: <%= @tour.ending_point %></li>
 
           <li class="list-group-item">
 
-          <i class="fas fa-history"></i>
-          Duration:
+          <i class="fas fa-history pe-2"></i>Duration:
           <% if @tour.duration >= 60 %>
             <% if @tour.duration % 60 == 0 %>
               <%= @tour.minutes_to_hours[:hours] %>
@@ -63,11 +62,11 @@
 
     </div>
 
-    <div class="col-4 bg-coral border-round p-4 shadow-sm d-flex flex-column align-items-center flex-start">
+    <div class="col-4 bg-coral border-round p-4 shadow-sm d-flex flex-column align-items-center flex-start text-center">
 
-      <h2>Make a reservation</h2>
+      <h2 class="text-center">Make a reservation for this tour</h2>
 
-      <p class="align-self-center fw-bold">From <%= @tour.price.round %>€ per person!</p>
+      <p class="align-self-center fw-bold btn btn-success btn-lg">From <%= @tour.price.round %>€ per person!</p>
       <%= render "bookings/book", tour: @tour, user: current_user, booking: Booking.new %>
     </div>
   </div>
