@@ -19,7 +19,6 @@ class ToursController < ApplicationController
     if @tour.save
       redirect_to dashboard_path, notice: "You have successfully created your tour."
     else
-      raise
       render :new
     end
   end
