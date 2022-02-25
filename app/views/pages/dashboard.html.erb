@@ -13,7 +13,7 @@
   <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active my-4" id="home" role="tabpanel" aria-labelledby="home-tab">
       <div class="row">
-        <div class="col-xl-6 col-lg-8 col-md-12">
+        <div class="col-xl-6 col-lg-8 col-md-12" style="margin-bottom: 350px">
         <% if @tourist_bookings.empty? %>
             <div class="m-3" style="height: 75vh">
               <p >You don't have any bookings yet.</p>
@@ -30,9 +30,9 @@
     </div>
     <div class="tab-pane fade my-4" id="profile" role="tabpanel" aria-labelledby="profile-tab">
       <div class="row">
-        <div class="col-xl-6 col-lg-8 col-md-12">
+        <div class="col-xl-6 col-lg-8 col-md-12" style="margin-bottom: 350px">
           <% if @guide_reservations.empty? %>
-            <div style="height: 75vh">
+            <div>
               <p class="m-3">You don't have any bookings for your tours yet</p>
             </div>
           <% else %>

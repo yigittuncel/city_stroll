@@ -5,9 +5,9 @@
       <h2><%= booking.tour.name %> (<%= booking.tour.city %>)</h2>
       <p><strong><%= booking.start_date.strftime("%A, %d %b %y") %></strong></p>
       <p><i class="fas fa-map-marker-alt"></i> <%= booking.tour.starting_point %></p>
-      <div class="d-flex justify-content-between">
-        <div>
-          <p class="d-block"><i class="far fa-clock"></i>
+      <div class="d-flex justify-content-end">
+        <div class="flex-grow-1">
+          <p><i class="far fa-clock"></i>
             <% if booking.tour.duration >= 60 %>
               <% if booking.tour.duration % 60 == 0 %>
                 <%= booking.tour.minutes_to_hours[:hours] %>
@@ -23,8 +23,15 @@
           </p>
         </div>
         <div>
+        </div>
+          <p class="me-3">
+            <%= booking.tour.users.count %>
+            <%= booking.tour.users.count == 1 ? "person" : "people"  %>
+            are joining this tour
+           </p>
+        <div>
           <% booking.tour.users.each do |user| %>
-            <%= user.first_name %>
+            <%= cl_image_tag user.photo.key, class: "avatar", alt: "avatar" %>
           <% end %>
         </div>
       </div>
