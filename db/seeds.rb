@@ -101,4 +101,39 @@ tours.each_with_index do |t, index|
   tour.user = User.all.sample
   tour.save!
   puts "Tour #{tour.name} created!"
+
 end
+
+puts "Creating Yigit's tour"
+
+tour = Tour.new(
+  name: "Ephesus Tour",
+  city: "Izmir",
+  starting_point: "Efes",
+  ending_point: "Selcuk",
+  description: "Discover the world-famous UNESCO sights of Turkey on this full-day Ephesus group tour including the Virgin Mary House and Artemis Temple with an expert local guide for an unforgettable experience. Walk on the ancient roads of the Roman city.",
+  duration: 300,
+  price: 40,
+)
+
+yigit_tour_photo = URI.open("https://images.unsplash.com/photo-1599579993087-7306f36cba3e")
+tour.photo.attach(io: yigit_tour_photo, filename: tour.name, content_type: 'image/png')
+
+yigit = User.find_by(first_name: "Yigit")
+tour.user = yigit
+
+tour.save!
+
+puts "Adding bookings for Yigit's tour"
+
+christina = User.find_by(first_name: "Christina")
+
+christina_booking = Booking.new(
+  user_id: christina.id,
+  tour_id: Tour.find_by(name: "Ephesus Tour").id,
+  start_date: Date.new(2022, 2, 27)
+)
+
+christina_booking.save!
+
+puts "Bookings finished!"
