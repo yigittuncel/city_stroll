@@ -8,7 +8,9 @@ puts "Previous tours deleted..."
 User.destroy_all
 puts "Previous users deleted..."
 
-user_photos [
+users = Array.new(14)
+
+user_photos = [
   "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1641542998/upgrit4bif7ab8enrywz.jpg",
   "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1641496329/rksezyk6ndmyjuh3jp8b.jpg",
   "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1641197640/tltl66uk36iuhxjmt4wr.jpg",
@@ -26,18 +28,21 @@ user_photos [
 ]
 first_names = ["Christina", "Anna", "Romain", "Melissa", "Sophie", "Michelle", "Fotios", "Nicola", "Michael", "Mario", "Maximilian", "Hasib", "Sankar", "Yigit"]
 last_names = ["Borensky", "Eiden", "Gille", "Hauck", "Hadeln", "Knolly", "Kolytoumpas", "Pilcher", "Pitopoulakis", "Rodríguez González", "Scheider", "Selimovic", "Ganesh Subramanian", "Tuncel"]
-user_email = ["christina@borensky.com", "anna@eiden.com", "romain@gille.com", "melissa@hauck.com", "sophie@hadeln.com", "michelle@knolly.com", "fotios@kolytoumpas.com", "nicola@pilcher.com", "michael@pitopoulakis.com", "mario@rodríguez-gonzález.com", "maximilian@scheider.com", "hasib@Selimovic.com", "sankar@ganesh-subramanian.com", "yigit@tuncel.com" ]
+user_email = ["christina@borensky.com", "anna@eiden.com", "romain@gille.com", "melissa@hauck.com", "sophie@hadeln.com", "michelle@knolly.com", "fotios@kolytoumpas.com", "nicola@pilcher.com", "michael@pitopoulakis.com", "mario@rodríguez-gonzález.com", "maximilian@scheider.com", "hasib@Selimovic.com", "sankar@ganesh-subramanian.com", "yigit@tuncel.com"]
 user_password = ["secret", "secret", "secret", "secret", "secret", "secret", "secret", "secret", "secret", "secret", "secret", "secret", "secret", "secret"]
 
 users.each_with_index do |u, index|
   user = User.new(
-    user_first_name: first_names[index],
-    user_last_name: last_names[index],
-    user_email: email[index],
-    user_password: password[index]
+    first_name: first_names[index],
+    last_name: last_names[index],
+    email: user_email[index],
+    password: user_password[index]
   )
-  puts "> #{user.first_name} is created"
-  users << user
+
+  user_photo = URI.open(user_photos[index])
+  user.photo.attach(io: user_photo, filename: user.email, content_type: 'image/png')
+  user.save!
+  puts "User #{user.first_name} created!"
 end
 
 tour_photos = [
@@ -93,7 +98,7 @@ tours.each_with_index do |t, index|
   )
   tour_photo = URI.open(tour_photos[index])
   tour.photo.attach(io: tour_photo, filename: tour.name, content_type: 'image/png')
-  tour.user = users.sample
+  tour.user = User.all.sample
   tour.save!
   puts "Tour #{tour.name} created!"
 end
